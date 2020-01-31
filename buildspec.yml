@@ -1,0 +1,31 @@
+version: 0.2
+env:
+  variables:
+    SONAR_LOGIN: "1d3b237e1547e79efcfdc4b2204f9ff013b5e337"
+    SONAR_HOST: "http://3.126.22.10:9000"
+phases:
+  install:
+      runtime-versions:
+        java: openjdk11
+      commands:
+      # Upgrade AWS CLI to the latest version
+      - pip install --upgrade awscli
+  pre_build:
+    commands:
+      - echo Entering build phase...
+      - echo Build started on `date`
+      - mvn clean compile test
+  build:
+    commands:
+      - mvn package
+  post_build:
+    commands:
+      - echo Entering post_build phase...
+      - echo Build completed on `date`
+      - mvn sonar:sonar -Dsonar.login=$SONAR_LOGIN -Dsonar.host.url=$SONAR_HOST
+artifacts:
+  type: zip
+  files:
+    - 'appspec.yml'
+    - 'target/petclinic.war'
+    - 'scripts/*'

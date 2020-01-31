@@ -1,0 +1,6 @@
+#!/bin/bash
+cd /home/ec2-user/javaapp
+cd /opt/apache-tomcat-8.5.50/webapps/
+sudo rm -rf webapps/petclinic.war
+sudo rm -rf webapps/petclinic
+mv /home/ec2-user/javaapp/petclinic.war /opt/apache-tomcat-8.5.50/webapps/
