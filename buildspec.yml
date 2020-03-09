@@ -1,8 +1,4 @@
 version: 0.2
-env:
-  variables:
-    SONAR_LOGIN: "1d3b237e1547e79efcfdc4b2204f9ff013b5e337"
-    SONAR_HOST: "http://3.126.22.10:9000"
 phases:
   install:
       runtime-versions:
@@ -22,7 +18,6 @@ phases:
     commands:
       - echo Entering post_build phase...
       - echo Build completed on `date`
-      - mvn sonar:sonar -Dsonar.login=$SONAR_LOGIN -Dsonar.host.url=$SONAR_HOST
 artifacts:
   type: zip
   files:
