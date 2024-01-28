@@ -4,7 +4,7 @@
 <%@ taglib prefix="petclinic" tagdir="/WEB-INF/tags" %>
 
 <petclinic:layout pageName="home">
-    <h1><fmt:message key="welcome to cicd demo class"/></h1>
+    <h1><fmt:message key="welcome to cicd Rama Krishna"/></h1>
     <div class="row">
         <div class="col-md-12">
             <spring:url value="/resources/images/pets.png" htmlEscape="true" var="petsImage"/>
